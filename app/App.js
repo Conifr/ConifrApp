@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import { DrawerNavigator } from 'react-navigation';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import Banner from './Banner';
 
@@ -20,9 +21,10 @@ class HomeScreen extends React.Component {
   static navigationOptions = {
     drawerLabel: 'Home',
     drawerIcon: ({ tintColor }) => (
-      <Image
-        source={require('./assets/chats-icon.png')}
-        style={[styles.icon, {tintColor: tintColor}]}
+      <MaterialIcons style={styles.icon}
+        name="home"
+        size={32}
+        color={tintColor}
       />
     ),
   };
@@ -30,23 +32,20 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Banner text={'Conifr'} />
-        <Button
-           onPress={() => this.props.navigation.navigate('DrawerOpen')}
-           title="Open drawer"
-         />
+        <Banner text={'Home'} navigation={this.props.navigation}/>
       </View>
     );
   }
 }
 
-class NotificationsScreen extends React.Component {
+class SettingsScreen extends React.Component {
   static navigationOptions = {
-    drawerLabel: 'Notifications',
+    drawerLabel: 'Settings',
     drawerIcon: ({ tintColor }) => (
-      <Image
-        source={require('./assets/notif-icon.png')}
-        style={[styles.icon, {tintColor: tintColor}]}
+      <MaterialIcons style={styles.icon}
+        name="settings"
+        size={32}
+        color={tintColor}
       />
     ),
   };
@@ -54,11 +53,7 @@ class NotificationsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Banner text={'Notifications'} />
-        <Button
-           onPress={() => this.props.navigation.navigate('DrawerOpen')}
-           title="Open drawer"
-         />
+        <Banner text={'Settings'} navigation={this.props.navigation}/>
       </View>
     );
   }
@@ -70,7 +65,7 @@ const ConifrApp = DrawerNavigator(
       screen: HomeScreen,
     },
     Notifications: {
-      screen: NotificationsScreen,
+      screen: SettingsScreen,
     },
   },
   {
@@ -81,21 +76,6 @@ const ConifrApp = DrawerNavigator(
 
 export default () => <ConifrApp />;
 
-/*export default class ConifrApp extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}*/
 
 const styles = StyleSheet.create({
   /*container: {
@@ -127,8 +107,10 @@ const styles = StyleSheet.create({
     //marginTop: Platform.OS === 'ios' ? 10 : 0,
   },
   icon: {
-    width: 24,
-    height: 24,
+    width: 32,
+    height: 32,
+    padding: 0,
+    margin: 0
   },
   item: {
     backgroundColor: '#fff',
