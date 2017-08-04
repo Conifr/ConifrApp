@@ -15,45 +15,16 @@ import {
 import { DrawerNavigator } from 'react-navigation';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import Banner from './Banner';
+import Banner from './components/Banner';
+import Login from './components/Login';
+import SettingsScreen from './components/Settings';
+import HomeScreen from './components/Home';
 
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    drawerLabel: 'Home',
-    drawerIcon: ({ tintColor }) => (
-      <MaterialIcons style={styles.icon}
-        name="home"
-        size={32}
-        color={tintColor}
-      />
-    ),
-  };
-
+class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Banner text={'Home'} navigation={this.props.navigation}/>
-      </View>
-    );
-  }
-}
-
-class SettingsScreen extends React.Component {
-  static navigationOptions = {
-    drawerLabel: 'Settings',
-    drawerIcon: ({ tintColor }) => (
-      <MaterialIcons style={styles.icon}
-        name="settings"
-        size={32}
-        color={tintColor}
-      />
-    ),
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Banner text={'Settings'} navigation={this.props.navigation}/>
+        <ConifrApp />
       </View>
     );
   }
@@ -74,7 +45,7 @@ const ConifrApp = DrawerNavigator(
 );
 
 
-export default () => <ConifrApp />;
+export default () => <App />;
 
 
 const styles = StyleSheet.create({
@@ -105,6 +76,7 @@ const styles = StyleSheet.create({
   }*/
   container: {
     //marginTop: Platform.OS === 'ios' ? 10 : 0,
+    flex: 1
   },
   icon: {
     width: 32,
