@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import Banner from './Banner';
+import CustomTabs from './HomeTabs';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -21,6 +22,7 @@ export default class HomeScreen extends Component {
     return (
       <View style={styles.container}>
         <Banner text={'Home'} navigation={this.props.navigation}/>
+        <CustomTabs />
       </View>
     );
   }

@@ -15,7 +15,7 @@ export default class Login extends Component {
         <View style={styles.logoContainer}>
             <Image
               style={styles.logo}
-              source={require('../assets/cropped-Conifr-Logo-No-Text-nobkg.png')}
+              source={require('../assets/ConifrLogo-lg-transparent.png')}
             />
             <Text style={styles.logoTitle}>Bringing Carbon to its Roots</Text>
         </View>
@@ -38,11 +38,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   logo: {
-    width: 150,
-    height: 150
+    width: 220,
+    height: 220
   },
   logoTitle: {
-    marginTop: 20,
+    marginTop: 10,
     width: 250,
     textAlign: 'center',
     opacity: 0.7,

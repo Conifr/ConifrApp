@@ -43,6 +43,7 @@ const ConifrApp = DrawerNavigator(
     },
   },
   {
+    initialRouteName: 'Login',
     mode: Platform.OS === 'ios' ? 'modal' : 'card',
   }
 );
