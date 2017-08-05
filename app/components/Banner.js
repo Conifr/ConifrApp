@@ -23,7 +23,7 @@ export default Banner;
 
 const styles = StyleSheet.create({
   banner: {
-    backgroundColor: '#4FC866',
+    backgroundColor: '#2ecc71',
     flexDirection: 'row',
     alignItems: 'center',
     padding: 14,

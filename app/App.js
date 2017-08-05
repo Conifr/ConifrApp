@@ -21,17 +21,20 @@ import SettingsScreen from './components/Settings';
 import HomeScreen from './components/Home';
 
 class App extends Component {
+
   render() {
     return (
-      <View style={styles.container}>
-        <ConifrApp />
-      </View>
+      <ConifrApp />
     );
   }
+
 }
 
 const ConifrApp = DrawerNavigator(
   {
+    Login: {
+      screen: Login
+    },
     Home: {
       screen: HomeScreen,
     },
