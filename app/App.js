@@ -19,6 +19,9 @@ import Banner from './components/Banner';
 import Login from './components/Login';
 import SettingsScreen from './components/Settings';
 import HomeScreen from './components/Home';
+import ProfileScreen from './components/Profile';
+import RecordActivity from './components/RecordActivity';
+import ManualActivity from './components/ManualActivity';
 
 class App extends Component {
 
@@ -38,7 +41,16 @@ const ConifrApp = DrawerNavigator(
     Home: {
       screen: HomeScreen,
     },
-    Notifications: {
+    RecordActivity: {
+      screen: RecordActivity,
+    },
+    ManualActivity: {
+      screen: ManualActivity,
+    },
+    Profile: {
+      screen: ProfileScreen,
+    },
+    Settings: {
       screen: SettingsScreen,
     },
   },

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   Button,
   Platform,
@@ -15,19 +15,35 @@ import {
   addNavigationHelpers,
 } from 'react-navigation';
 
-
-const HomeNavScreen = ({ navigation, current }) => (
-  <View>
-    <Text>{current}</Text>
-  </View>
-);
-
-const MyTrips = ({ navigation }) => (
-  <HomeNavScreen current="MyTrips Screen"  navigation={navigation} />
-);
+class MyTrips extends Component {
+  render(){
+    var json = [
+      { 'date': '07/16/17', 'location': 'Santa Cruz, CA', 'distance': '2.0 mi', 'offset_cost': '0.05'},
+      { 'date': '07/23/17', 'location': 'San Francisco, CA', 'distance': '3.4 mi', 'offset_cost': '0.08'}
+    ];
+    var trips = [];
+    for(let i = 0; i < json.length; i++){
+      trips.push(
+        <View key = {i} style={styles.tripCard}>
+          <Text>{json[i].date}</Text>
+          <Text>{json[i].location}</Text>
+          <Text>{json[i].distance}</Text>
+          <Text>{json[i].offset_cost}</Text>
+        </View>
+      )
+    }
+    return(
+      <ScrollView style={styles.tabScrollView}>
+        { trips }
+      </ScrollView>
+    )
+  }
+}
 
 const FollowingTrips = ({ navigation }) => (
-  <HomeNavScreen current="Following Trips Screen" navigation={navigation} />
+  <ScrollView style={styles.tabScrollView}>
+    <Text>{"Following Trips Screen"}</Text>
+  </ScrollView>
 );
 
 const CustomTabBar = ({ navigation, current }) => {
@@ -91,7 +107,7 @@ const styles = StyleSheet.create({
   },
   tabContainer: {
     flexDirection: 'row',
-    height: 44,
+    height: 42,
   },
   tab: {
     flex: 1,
@@ -122,6 +138,19 @@ const styles = StyleSheet.create({
   tabTitleText: {
     color: '#000',
     fontWeight: '500'
+  },
+  tabScrollView: {
+    padding: 8,
+    paddingTop: 5
+  },
+  tripCard: {
+    padding: 10,
+    marginTop: 4,
+    marginBottom: 4,
+    width: '100%',
+    height: 150,
+    borderRadius: 4,
+    backgroundColor: '#ECF0F1'
   }
 });
 

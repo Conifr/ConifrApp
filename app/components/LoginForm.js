@@ -3,7 +3,7 @@ import { StyleSheet, View, Image, TouchableOpacity, Text, AppRegistry } from 're
 
 import ConifrApp from '../App';
 
-export default class LoginForm extends React.Component {
+export default class LoginForm extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
